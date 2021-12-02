@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 
-class Score extends Model {
+class Score extends Model {}
   
   Score.init(
     {
@@ -39,6 +39,7 @@ class Score extends Model {
         key: 'id',
         },
     },
+  },
     {
       sequelize,
       timestamps: false,

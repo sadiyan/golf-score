@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 
-class Course extends Model {
+class Course extends Model {}
   
 Course.init(
-    {
+  {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -21,6 +21,7 @@ Course.init(
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+    },
     {
       sequelize,
       timestamps: false,
@@ -29,5 +30,4 @@ Course.init(
       modelName: 'course',
     }
   );
-  
   module.exports = Course;
