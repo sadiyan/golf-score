@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 
-class Review extends Model {
+class Review extends Model {}
   
 Review.init(
-    {
+  {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -38,6 +38,7 @@ Review.init(
         model: 'course',
         key: 'id',
         },
+    },
     },
     {
       sequelize,

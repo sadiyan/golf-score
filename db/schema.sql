@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS golfScore_db;
+CREATE DATABASE goldScore_db;
