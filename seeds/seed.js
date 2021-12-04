@@ -6,14 +6,14 @@ const seedCourses = require('./courseData');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
-
   await seedUsers();
+  await seedCourses();
+
 
   await seedReviews();
 
   await seedScores();
 
-  await seedCourses();
 
 
   process.exit(0);

@@ -7,17 +7,22 @@ User.hasMany(Score, {
    foreignKey: 'user_id'
 })
 
+Score.belongsTo(User ,  {
+   foreignKey: 'user_id'
+})
+
 User.hasMany(Course, {
    foreignKey: 'user_id'
 })
 
-Score.belongsTo(User ,  {
+Course.belongsTo(User,  {
    foreignKey: 'user_id'
 })
 
 Score.belongsTo(Course ,  {
    foreignKey: 'course_id'
 })
+
 
 Review.belongsTo(User, {
    foreignKey: 'user_id'
@@ -27,13 +32,7 @@ Review.belongsTo(Course, {
    foreignKey: 'course_id'
 })
 
-Course.belongsTo(User,  {
-   foreignKey: 'user_id'
-})
 
-Course.belongsTo(Score,  {
-   foreignKey: 'course_id'
-})
 
 
 module.exports = { User, Score, Review, Course};
