@@ -20,6 +20,7 @@ Review.init(
       created_date: {
         type: DataTypes.DATE,
         allowNull: false,
+        defaultValue: new Date()
       },
       rating: {
         type: DataTypes.INTEGER,
@@ -45,7 +46,7 @@ Review.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'course',
+      modelName: 'review',
     }
   );
   
