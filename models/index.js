@@ -19,10 +19,13 @@ Course.belongsTo(User,  {
    foreignKey: 'user_id'
 })
 
-Score.belongsTo(Course ,  {
+Course.hasMany(Review,  {
    foreignKey: 'course_id'
 })
 
+Score.belongsTo(Course ,  {
+   foreignKey: 'course_id'
+})
 
 Review.belongsTo(User, {
    foreignKey: 'user_id'
