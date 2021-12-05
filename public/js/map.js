@@ -1,5 +1,3 @@
-
-
 const getmap = () => {
     navigator.geolocation.getCurrentPosition(success);
 
@@ -7,7 +5,6 @@ const getmap = () => {
         const lat = pos.coords.latitude;
         const lon = pos.coords.longitude;
         
-        console.log(`${lat}, ${lon}`)
 
         const map = L.map('map')
         .setView([lat, lon], 13);
