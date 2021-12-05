@@ -24,7 +24,7 @@ header, .project:not(:last-child) {
 }
 
 #map { 
-  position: absolute;
-  height: 300px; 
-  max-width: 10%;
+  display: block;
+  width: 80%;
+  min-height: 400px;
 }
