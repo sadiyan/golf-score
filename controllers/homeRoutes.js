@@ -9,8 +9,10 @@ router.get('/', async (req, res) => {
             model: Review,
          }]
       })
+
       const courses = newCourse.map((course) => course.get({ plain: true }));
-      res.render('homepage', {courses})
+      console.log(courses)
+      res.render('homepage', { courses })
    }
 
    catch (err) {

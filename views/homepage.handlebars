@@ -9,15 +9,21 @@
       Golf Score is a application built for golf lovers where you can keep scores on your favorite courses, and enjoy the latest news of your favorite sport. 
     </p>
   </div>
+</div>
 
-
-
-  <div class="col-xl-10">
-    {{!-- add courses and reviews --}}
+<div class="container d-flex" style="width: 90%;">
+  <div class="row mb-4 project">
+    <div class="col-md-7" id='map'>Map</div>
+    <div class="col-md-5">
+      {{!-- add courses and reviews --}}
+      <a href="/addreview">
+      <button>Click to add your review</button>
+      </a>
+      {{> review-page}}
+    </div>
 
   </div>
 </div>
-  <div id='map'>Map</div>
   
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
   <script src="https://unpkg.com/esri-leaflet@2.3.2/dist/esri-leaflet.js" integrity="sha512-6LVib9wGnqVKIClCduEwsCub7iauLXpwrd5njR2J507m3A2a4HXJDLMiSZzjcksag3UluIfuW1KzuWVI5n/cuQ==" crossorigin=""></script>

@@ -19,7 +19,14 @@ const getmap = () => {
 
         L.marker([lat, lon]).addTo(map)
 
+        map.on('click', addMarker);
 
+        function addMarker(e){
+          // Add marker to map at click location; add popup window
+          new L.marker(e.latlng).addTo(map);
+        }
+
+        //search bar on the map
         const searchControl = L.esri.Geocoding.geosearch({
             position: 'topright',
             placeholder: 'Enter an address or place',
@@ -42,5 +49,6 @@ const getmap = () => {
         
 }
 
-// getmap()
-  
+
+
+// getmap();
