@@ -1,0 +1,18 @@
+{{#each courses as |course|}}
+
+    <div>
+    name: {{name}}
+    par: {{par}}
+    review:
+    {{#each reviews as |review|}}
+        <div>
+            comment: {{comment}}
+            <br>
+            created date: {{format_date created_date}}
+            <br>
+            rating: {{rating}}
+        </div>
+    </div>
+    {{/each}}
+
+{{/each}}
