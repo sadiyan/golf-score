@@ -42,15 +42,5 @@ const getmap = () => {
         
 }
 
-getmap()
-
-const addCourseReview = async (event) => {
-  event.preventDefault();
-
-  document.location.replace('/addCourseReview');
+// getmap()
   
-};
-
-document
-  .querySelector('.leaflet-marker-icon')
-  .addEventListener('click', addCourseReview);
