@@ -1,31 +1,24 @@
 {{#each courses as |course|}}
 
-<<<<<<< HEAD
+
     <div style="border: 1px black solid; margin: 2px; padding: 2px;">
-    name: {{name}}
-    <br>
-    par: {{par}}
-    <br>
-    review:
-=======
-    <div>
     Name: {{name}}
+    <br>
     Par: {{par}}
+    <br>
     Review:
->>>>>>> 95acf4b6e54b48cd0eeae74d45743656a54c627b
+
     {{#each reviews as |review|}}
         <div>
             Comment: {{comment}}
             <br>
             Created Date: {{format_date created_date}}
             <br>
-<<<<<<< HEAD
-            rating: {{rating}}
+
+            Rating: {{rating}}
             <br>
             by: {{course.user.username}}
-=======
-            Rating: {{rating}}
->>>>>>> 95acf4b6e54b48cd0eeae74d45743656a54c627b
+
         </div>
     </div>
     {{/each}}
