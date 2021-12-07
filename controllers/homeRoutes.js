@@ -49,7 +49,7 @@ router.get('/login', (req, res) => {
  
    res.render('login');
  });
-=======
+
 router.post('/addreview', async (req, res) => {
    try {
 

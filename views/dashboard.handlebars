@@ -15,12 +15,16 @@
         <input class="form-input" type="text" id="post-title" name="post-title" />
       </div>
       <div class="form-group">
+        <label for="post-title">Par:</label>
+        <input class="form-input" type="text" id="post-title" name="post-title" />
+      </div>
+      <div class="form-group">
         <label for="post-title">Score:</label>
         <input class="form-input" type="text" id="post-title" name="post-title" />
       </div>
       <div class="form-group">
-        <label for="post-description">Review:</label>
-        <input class="form-input" type="number" id="project-description" name="project-description" />
+        <label for="post-title">Date:</label>
+        <input class="form-input" type="text" id="post-title" name="post-title" />
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -28,22 +32,29 @@
     </form>
   </div>
 
-  {{#if posts.length}}
+{{!-- maybe put a graph --}}
+{{!-- need to put info for past courses golfed on --}}
+  {{#if course.length}}
   <div class="col-md-6 project-list">
     <h3>Past Course's:</h3>
 
-    {{#each posts as |post|}}
+    {{#each courses as |course|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+        <h4>{{course.title}}</h4>
+        <p>{{course.par}}</p>
+        <p>{{score.date}}</p>
+        <p>{{score.total}}</p>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{course.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
 </div>
+
+
 
 <script src="./js/profile.js"></script>

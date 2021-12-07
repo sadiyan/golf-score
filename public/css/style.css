@@ -1,30 +1,26 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-}
-
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #076652;
-  text-decoration: none;
-  font-size: 100%;
-}
-
-.no-button:hover {
-  color: #FFFF00;
-  text-decoration: underline;
-}
-
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+header {
+  border-bottom: 1px solid #076652;
 }
 
 #map { 
   display: block;
   width: 80%;
   min-height: 400px;
+}
+
+a {
+  text-decoration: none;
+  color: #076652;
+}
+
+a:hover {
+  color: yellow;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.golfScoreDescription {
 }
