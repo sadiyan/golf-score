@@ -1,7 +1,7 @@
 {{!-- need reviews and courses --}}
 <!-- Loop over each object in the projects array -->
-<div class="row mb-4 project">
-  <div class="col-md-5">
+  <div class="col-md-12" style="text-align:center;
+  font-size:larger; padding:5%;">
     <h2>
       What is Golf Score?
     </h2>
@@ -9,11 +9,10 @@
       Golf Score is a application built for golf lovers where you can keep scores on your favorite courses, and enjoy the latest news of your favorite sport. 
     </p>
   </div>
-</div>
 
 <div class="container d-flex" style="width: 90%;">
   <div class="row mb-4 project">
-    <div class="col-md-7" id='map'>Map</div>
+    <div class="col-md-7" id='map'>Find your Golf Course!</div>
     <div class="col-md-5">
       {{!-- add courses and reviews --}}
       {{> addreview-page}}
