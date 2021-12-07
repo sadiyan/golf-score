@@ -1,60 +1,51 @@
 {{!-- need score and courses --}}
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{user.name}}!</h2>
+    <h2>Welcome, {{username}}!</h2>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h4>Been golfing?</h4>
+<div class="container d-flex">
+  <div class="row mt-12">
 
-    <form class="form new-post-form">
-      <div class="form-group">
-        <label for="post-title">Course:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      <div class="form-group">
-        <label for="post-title">Par:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      <div class="form-group">
-        <label for="post-title">Score:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      <div class="form-group">
-        <label for="post-title">Date:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-
-{{!-- maybe put a graph --}}
-{{!-- need to put info for past courses golfed on and display each one--}}
-  {{#if course.length}}
-  <div class="col-md-6 project-list">
+  {{#if user.courses.length}}
+    <div class="col-md-6 project-list">
     <h3>Past Course's:</h3>
 
-    {{#each courses as |course|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4>{{course.title}}</h4>
-        <p>{{course.par}}</p>
-        <p>{{score.date}}</p>
-        <p>{{score.total}}</p>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{course.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
+    {{#each course as |course|}}
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4>Course: {{course.name}}</h4>
+          <p>Par: {{course.par}}</p>
 
+          {{#each course.scores as |score| }}
+            <p>Date: {{format_date score.date}}</p>
+            <p>Score: {{score.total}}</p>
+          {{/each}} 
+        </div>
+
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-danger" data-id="{{course.id}}">DELETE</button>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  {{/if}} 
+
+  {{!-- maybe put a graph --}}
+    <div class="col-md-6">
+      {{> linechart}}
+    </div>
+  </div>
+
+
+  
+  <a href="/dashboard/add">
+  <button>Click to add your score!</button>
+</a>
+</div>
+{{!-- need to put info for past courses golfed on and display each one--}}
+  
 
 
 <script src="./js/profile.js"></script>

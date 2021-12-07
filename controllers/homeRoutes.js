@@ -6,7 +6,11 @@ router.get('/', async (req, res) => {
    try {
       const newCourse = await Course.findAll({
          include: [{
-            model: Review,
+            model: Review
+         },
+         {
+            model: User,
+            attributes: ['username']
          }]
       })
 
@@ -65,7 +69,7 @@ router.post('/addreview', async (req, res) => {
      const courseData = await Course.create({
       name: req.body.coursename,
       par: req.body.coursepar,
-      user_id: req.session.userId,
+      user_id: req.session.user_id,
     });
 
     const course = courseData.get({ plain: true })
@@ -74,7 +78,7 @@ router.post('/addreview', async (req, res) => {
       comment: req.body.coursereview,
       rating: req.body.courserating,
       course_id: course.id,
-      user_id: req.session.userId,
+      user_id: req.session.user_id,
     });
 
     const review = reviewData.get({ plain: true })
