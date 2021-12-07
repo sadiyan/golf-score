@@ -1,16 +1,16 @@
 {{#each courses as |course|}}
 
     <div>
-    name: {{name}}
-    par: {{par}}
-    review:
+    Name: {{name}}
+    Par: {{par}}
+    Review:
     {{#each reviews as |review|}}
         <div>
-            comment: {{comment}}
+            Comment: {{comment}}
             <br>
-            created date: {{format_date created_date}}
+            Created Date: {{format_date created_date}}
             <br>
-            rating: {{rating}}
+            Rating: {{rating}}
         </div>
     </div>
     {{/each}}

@@ -1,5 +1,5 @@
 header {
-  border-bottom: 1px solid #076652;
+  border-bottom: 2px solid #076652;
 }
 
 #map { 
@@ -22,8 +22,24 @@ img {
   height: 100%;
 }
 
-/* .golfScoreDescription {
-  text-align: center;
-  font-size: larger;
-  padding: 5%;
-} */
+div.transbox h2 {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+h4 {
+  margin-left: 20px;
+  font-size: large;
+}
+
+h3 {
+  margin-left: 20px;
+  font-size: large;
+}

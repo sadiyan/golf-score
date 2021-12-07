@@ -45,6 +45,7 @@ form .form-group {
   display: block;
   width: 100%;
   margin: 0.625rem 0;
+  margin-left: 20px;
 }
 
 form .form-input,
@@ -81,11 +82,6 @@ form .form-input {
 
 form .form-input.form-input-squared {
   border-radius: 0;
-}
-
-label form [type='checkbox'], label
-form [type='radio'] {
-  display: inline-block;
 }
 
 .container {
@@ -527,16 +523,12 @@ form [type='radio'] {
   }
 }
 
-
-
 .recentNews {
-    background-color: #076652;  
+    background-color: #4f7942;
 }
 .recentNews .news-title {
     text-align:center;
-    padding-top:30px;
-    padding-bottom:30px;
-    font-family: 'nimbus-sans-condensed', sans-serif;
+    padding-top:35px;
     font-size:55px;
     font-weight:bold;
     color: #fff;
@@ -553,7 +545,7 @@ form [type='radio'] {
 .ct-blog .inner {
     background-color: #FFF;
     padding: 10px;
-    transition: all 0.2s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
     cursor: pointer;
     height: 100%;
 }
@@ -572,22 +564,21 @@ form [type='radio'] {
     padding: 30px 0 28px;
 }
 .ct-blog-content .ct-blog-date {
-    border-right: 1px solid #95A5A6;
+    border-right: 1px solid grey;
     display: table-cell;
-    font-family: "Lato", sans-serif;
     padding: 0px 18px 0px 15px;
     text-align: center;
 }
 .ct-blog-content .ct-blog-date span {
     font-size: 10px;
-    color: #076652;  
+    color: black;  
     font-weight: 700;
     display: block;
     line-height: 1;
 }
 .ct-blog-content .ct-blog-date strong {
     font-size: 25px;
-    color: #076652;  
+    color: #4f7942;  
 }
 .ct-blog-content .ct-blog-header {
     color: #000;
