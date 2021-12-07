@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "seed": "node seeds/seed.js",
+    "dev": "nodemon npm start"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,6 @@
     "leaflet-search": "^3.0.2",
     "mysql2": "^2.3.2",
     "sequelize": "^6.9.0"
-  }
+  },
+  "devDependencies": {}
 }
