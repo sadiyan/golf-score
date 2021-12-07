@@ -17,7 +17,8 @@ router.get('/', withAuth, async (req, res) => {
             user_id: req.session.user_id,
          },
          include: [{
-            model: Score
+            model: Score,
+            attributes: ['date', 'total']
          }]
       })
 
