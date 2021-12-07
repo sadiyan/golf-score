@@ -6,13 +6,20 @@ router.get('/', async (req, res) => {
    try {
       const newCourse = await Course.findAll({
          include: [{
-            model: Review,
+            model: Review
+         },
+         {
+            model: User,
+            attributes: ['username']
          }]
       })
 
       const courses = newCourse.map((course) => course.get({ plain: true }));
       console.log(courses)
-      res.render('homepage', { courses })
+      res.render('homepage', { 
+         courses,          
+         logged_in: true
+      })
    }
 
    catch (err) {
@@ -22,7 +29,9 @@ router.get('/', async (req, res) => {
 
 router.get('/addreview', (req, res) => {
    try {
-      res.render('addcoursereview')
+      res.render('addcoursereview', {
+         logged_in: true
+      })
    }
 
    catch (err) {
@@ -31,9 +40,11 @@ router.get('/addreview', (req, res) => {
 });
 
 
-router.get('/board', (req, res) => {
+router.get('/board', withAuth, (req, res) => {
    try {
-      res.render('myboard')
+      res.render('myboard', {
+         logged_in: true
+      })
    }
    catch (err) {
       res.status(400).json(err);
@@ -43,7 +54,9 @@ router.get('/board', (req, res) => {
 router.get('/login', (req, res) => {
    // If the user is already logged in, redirect the request to another route
    if (req.session.logged_in) {
-     res.redirect('/dashboard');
+     res.redirect('/dashboard', {
+      logged_in: true
+     });
      return;
    }
  
@@ -56,7 +69,7 @@ router.post('/addreview', async (req, res) => {
      const courseData = await Course.create({
       name: req.body.coursename,
       par: req.body.coursepar,
-      user_id: req.session.userId,
+      user_id: req.session.user_id,
     });
 
     const course = courseData.get({ plain: true })
@@ -65,7 +78,7 @@ router.post('/addreview', async (req, res) => {
       comment: req.body.coursereview,
       rating: req.body.courserating,
       course_id: course.id,
-      user_id: req.session.userId,
+      user_id: req.session.user_id,
     });
 
     const review = reviewData.get({ plain: true })
@@ -74,31 +87,6 @@ router.post('/addreview', async (req, res) => {
      } catch (err) {
      console.log(err);
      res.status(500).json(err);
-   }
-});
-
-router.get('/dashboard', withAuth, async (req, res) => {
-   try {
-      const newCourse = await Course.findAll({
-         include: [{
-            model: Score,
-         }]
-      })
-      const courses = newCourse.map((course) => course.get({ plain: true }));
-      const userData = await User.findByPk(req.session.user_id, {
-         attributes: { exclude: ['password'] },
-         include: [{ model: Course, Score }],
-      })
-
-      const user = userData.get({ plain: true });
-
-      res.render('dashboard', {
-         ...user,
-         logged_in: true,
-         courses }
-      )}
-   catch (err) {
-      res.status(400).json(err);
    }
 });
 

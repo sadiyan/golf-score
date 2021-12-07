@@ -1,16 +1,24 @@
 {{#each courses as |course|}}
 
-    <div>
+
+    <div style="border: 1px black solid; margin: 2px; padding: 2px;">
     Name: {{name}}
+    <br>
     Par: {{par}}
+    <br>
     Review:
+
     {{#each reviews as |review|}}
         <div>
             Comment: {{comment}}
             <br>
             Created Date: {{format_date created_date}}
             <br>
+
             Rating: {{rating}}
+            <br>
+            by: {{course.user.username}}
+
         </div>
     </div>
     {{/each}}
