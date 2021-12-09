@@ -21,14 +21,14 @@ class Score extends Model {}
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-    user_id: {
+    userId: {
     type: DataTypes.INTEGER,
     references: {
         model: 'user',
         key: 'id',
         },
     },
-    course_id: {
+    courseId: {
         type: DataTypes.INTEGER,
         references: {
         model: 'course',

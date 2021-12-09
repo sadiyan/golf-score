@@ -17,7 +17,7 @@ Review.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-      created_date: {
+      createdDate: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: new Date()
@@ -26,14 +26,14 @@ Review.init(
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      user_id: {
+      userId: {
         type: DataTypes.INTEGER,
         references: {
             model: 'user',
             key: 'id',
             },
         },
-    course_id: {
+    courseId: {
         type: DataTypes.INTEGER,
         references: {
         model: 'course',
