@@ -20,7 +20,7 @@ Course.belongsTo(User,  {
 })
 
 Course.hasMany(Score, {
-   foreignKey: 'user_id'
+   foreignKey: 'course_id'
 })
 
 Score.belongsTo(Course ,  {

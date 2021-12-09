@@ -46,21 +46,22 @@ router.post('/add', async (req, res) => {
       const courseData = await Course.create({
          name: req.body.coursename,
          par: req.body.coursepar,
-         user_id: req.session.user_id,
+         userId: req.session.user_id,
        });
    
       const course = courseData.get({ plain: true })
 
-       const scoreData = await Score.create({
+      const scoreData = await Score.create({
          date: req.body.coursedate,
          total: req.body.coursescore,
-         user_id: req.session.user_id,
-         course_id: course.id,
+         userId: req.session.user_id,
+         courseId: course.id,
        });
       
       const score = scoreData.get({ plain: true })
 
       res.status(200).json({course, score});
+
    } catch (err) {
       console.log(err);
       res.status(500).json(err);
