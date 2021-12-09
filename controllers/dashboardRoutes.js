@@ -22,19 +22,6 @@ router.get('/', withAuth, async (req, res) => {
          }]
       })
 
-
-
-      // const newCourse = await Course.findAll({
-      //    include: [{
-      //       model: Score,
-      //    }]
-      // })
-      // const courses = newCourse.map((course) => course.get({ plain: true }));
-      // const userData = await User.findByPk(req.session.user_id, {
-      //    attributes: { exclude: ['password'] },
-      //    include: [{ model: Course, Score }],
-      // })
-
       const user = userData.get({ plain: true });
       const course = courseData.map(course => course.get({ plain: true }));
 
@@ -51,6 +38,37 @@ router.get('/', withAuth, async (req, res) => {
       res.status(400).json(err);
    }
 });
+
+router.post('/add', async (req, res) => {
+   console.log(req.body)
+
+   try {
+      const courseData = await Course.create({
+         name: req.body.coursename,
+         par: req.body.coursepar,
+         user_id: req.session.user_id,
+       });
+   
+      const course = courseData.get({ plain: true })
+
+       const scoreData = await Score.create({
+         date: req.body.coursedate,
+         total: req.body.coursescore,
+         user_id: req.session.user_id,
+         course_id: course.id,
+       });
+      
+      const score = scoreData.get({ plain: true })
+
+      console.log(score)
+
+      res.status(200).json({course, score});
+   } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+   }
+   
+})
 
 router.get('/add', withAuth, (req, res) => {
    res.render('add-dashboard', {
