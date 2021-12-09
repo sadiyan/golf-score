@@ -1,37 +1,43 @@
-<head>  
-<script>
-window.onload = function () {
+{{#each course as |course|}}
+    {{#each course.scores as |score| }}
+    <div class="datearry">'{{format_date date}}', {{total}}</div>
+    
+    {{/each}}
+{{/each}} 
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title:{
-		text: "Your score in chart"
-	},
-	data: [{        
-		type: "line",
-      	indexLabelFontSize: 16,
-		dataPoints: [
-			{ y: 450 },
-			{ y: 414},
-			{ y: 520, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			{ y: 460 },
-			{ y: 450 },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 480 },
-			{ y: 410 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 510 }
-		]
-	}]
-});
-chart.render();
 
-}
+    <div id="chart" style="width: 700px; height: 500px"></div>
+  
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    
+    const arrdatatable = ["['Date', 'Score']"]
+    const dateObj= document.querySelectorAll('.datearry')
+
+    dateObj.forEach(arr=> arrdatatable.push(arr.innerHTML) )
+    console.log(arrdatatable)
+
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Date', 'Score'],
+        ['2004',  1000 ],
+        ['2005',  1170 ],
+        ['2006',  660 ],
+
+    ]);
+
+    var options = {
+        title: 'Your score in chart!',
+        legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
+    chart.draw(data, options);
+    }
 </script>
-</head>
-
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

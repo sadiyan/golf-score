@@ -60,6 +60,8 @@ router.post('/add', async (req, res) => {
       
       const score = scoreData.get({ plain: true })
 
+      console.log(score)
+
       res.status(200).json({course, score});
 
    } catch (err) {
