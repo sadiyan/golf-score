@@ -20,7 +20,8 @@ Course.belongsTo(User,  {
 })
 
 Course.hasMany(Score, {
-   foreignKey: 'user_id'
+   foreignKey: 'course_id',
+   onDelete: 'CASCADE'
 })
 
 Score.belongsTo(Course ,  {

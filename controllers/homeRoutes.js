@@ -69,7 +69,7 @@ router.post('/addreview', async (req, res) => {
      const courseData = await Course.create({
       name: req.body.coursename,
       par: req.body.coursepar,
-      user_id: req.session.user_id,
+      userId: req.session.user_id,
     });
 
     const course = courseData.get({ plain: true })
@@ -77,8 +77,8 @@ router.post('/addreview', async (req, res) => {
     const reviewData = await Review.create({
       comment: req.body.coursereview,
       rating: req.body.courserating,
-      course_id: course.id,
-      user_id: req.session.user_id,
+      courseId: course.id,
+      userId: req.session.user_id,
     });
 
     const review = reviewData.get({ plain: true })

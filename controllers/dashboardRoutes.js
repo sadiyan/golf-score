@@ -46,16 +46,16 @@ router.post('/add', async (req, res) => {
       const courseData = await Course.create({
          name: req.body.coursename,
          par: req.body.coursepar,
-         user_id: req.session.user_id,
+         userId: req.session.user_id,
        });
    
       const course = courseData.get({ plain: true })
 
-       const scoreData = await Score.create({
+      const scoreData = await Score.create({
          date: req.body.coursedate,
          total: req.body.coursescore,
-         user_id: req.session.user_id,
-         course_id: course.id,
+         userId: req.session.user_id,
+         courseId: course.id,
        });
       
       const score = scoreData.get({ plain: true })
@@ -63,12 +63,40 @@ router.post('/add', async (req, res) => {
       console.log(score)
 
       res.status(200).json({course, score});
+
    } catch (err) {
       console.log(err);
       res.status(500).json(err);
    }
    
 })
+
+router.delete('/:id', withAuth, async (req, res) => {
+   try {
+      
+      const id = req.params.id;
+      const course = await Course.findByPk(Number(id));
+
+      console.log(id)
+      console.log(course)
+
+      if (!course) {
+        res.status(404).json({ message: 'No course found with this id!' });
+        return;
+      } 
+      const courseData = await Course.destroy({
+         where: {
+            id: id,
+            userId: req.session.user_id,
+         },
+         
+      });
+     
+     res.status(200).json(courseData);
+   } catch (err) {
+     res.status(500).json(err);
+   }
+ });
 
 router.get('/add', withAuth, (req, res) => {
    res.render('add-dashboard', {
