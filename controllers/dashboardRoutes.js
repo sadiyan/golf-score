@@ -46,7 +46,9 @@ router.post('/add', async (req, res) => {
          }
       })
 
-      if (checkcourse.length !== 0) {
+      console.log(checkcourse)
+
+      if (checkcourse) {
          var courseData = checkcourse
       } else {
          var courseData = await Course.create({
