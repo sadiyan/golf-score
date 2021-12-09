@@ -22,7 +22,7 @@ const scoreAddHandler = async (event) => {
      }
  };
  
- document
-   .querySelector('.new-post-form')
-   .addEventListener('submit', scoreAddHandler);
- 
+  document
+    .querySelector('.new-post-form')
+    .addEventListener('submit', scoreAddHandler);
+

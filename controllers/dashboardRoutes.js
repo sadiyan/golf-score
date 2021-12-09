@@ -69,6 +69,33 @@ router.post('/add', async (req, res) => {
    
 })
 
+router.delete('/dashboard/:id', withAuth, async (req, res) => {
+   try {
+      
+      const id = req.params.id;
+      const course = await Course.findByPk(Number(id));
+
+      console.log(id)
+      console.log(course)
+
+      if (!course) {
+        res.status(404).json({ message: 'No course found with this id!' });
+        return;
+      } 
+      const courseData = await Course.destroy({
+         where: {
+            id: id,
+            userId: req.session.user_id,
+         },
+         
+      });
+     
+     res.status(200).json(courseData);
+   } catch (err) {
+     res.status(500).json(err);
+   }
+ });
+
 router.get('/add', withAuth, (req, res) => {
    res.render('add-dashboard', {
       logged_in: true
