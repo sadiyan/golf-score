@@ -25,9 +25,6 @@ router.get('/', withAuth, async (req, res) => {
       const user = userData.get({ plain: true });
       const course = courseData.map(course => course.get({ plain: true }));
 
-      console.log(user)
-      console.log(course)
-
       res.render('dashboard', {
          ...user,
          logged_in: true,
@@ -40,15 +37,26 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.post('/add', async (req, res) => {
-   console.log(req.body)
 
    try {
-      const courseData = await Course.create({
-         name: req.body.coursename,
-         par: req.body.coursepar,
-         userId: req.session.user_id,
-       });
-   
+
+      var checkcourse = await Course.findOne({
+         where: {
+            name: req.body.coursename
+         }
+      })
+
+      if (checkcourse.length !== 0) {
+         var courseData = checkcourse
+      } else {
+         var courseData = await Course.create({
+            name: req.body.coursename,
+            par: req.body.coursepar,
+            userId: req.session.user_id,
+         });
+
+   }
+
       const course = courseData.get({ plain: true })
 
       const scoreData = await Score.create({

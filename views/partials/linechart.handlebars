@@ -1,6 +1,6 @@
 {{#each course as |course|}}
     {{#each course.scores as |score| }}
-    <div class="datearry">'{{format_date date}}', {{total}}</div>
+    <div class="datearry" style="visibility:hidden">{{format_date date}} {{total}}</div>
     
     {{/each}}
 {{/each}} 
@@ -12,10 +12,15 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     
-    const arrdatatable = ["['Date', 'Score']"]
+    const arrdatatable = [['Date', 'Score']]
     const dateObj= document.querySelectorAll('.datearry')
 
-    dateObj.forEach(arr=> arrdatatable.push(arr.innerHTML) )
+    dateObj.forEach(arr=> arrdatatable.push(arr.innerHTML.split(' ')) )
+    for(i=1; i<arrdatatable.length; i++) {
+        const parsenum = parseInt(arrdatatable[i][1]);
+        const revised = arrdatatable[i].splice(1, 1, parsenum )
+        
+    }
     console.log(arrdatatable)
 
 
@@ -23,13 +28,7 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Date', 'Score'],
-        ['2004',  1000 ],
-        ['2005',  1170 ],
-        ['2006',  660 ],
-
-    ]);
+    var data = google.visualization.arrayToDataTable(arrdatatable);
 
     var options = {
         title: 'Your score in chart!',
