@@ -3,11 +3,15 @@
   <div class="col-auto">
 
     <h2>Welcome, {{username}}!</h2>
+
   </div>
 </div>
 
 <div class="container d-flex">
   <div class="row mt-12">
+
+
+{{!-- need to put info for past courses golfed on and display each one--}}
 
   {{#if user.courses.length}}
     <div class="col-md-6 project-list">
@@ -22,20 +26,26 @@
           {{#each course.scores as |score| }}
             <p>Date: {{format_date score.date}}</p>
             <p>Score: {{score.total}}</p>
+            <div class="col-md-4">
+              <button class="btn btn-sm btn-danger" data-id="{{course.id}}">DELETE</button>
+            </div>
           {{/each}} 
-        </div>
 
-        <div class="col-md-4">
-          <button class="btn btn-sm btn-danger" data-id="{{course.id}}">DELETE</button>
+
+
         </div>
       </div>
     {{/each}}
     </div>
   {{/if}} 
 
+
+ 
+
   {{!-- maybe put a graph --}}
     <div class="col-md-6">
       {{> linechart}}
+
     </div>
   </div>
 
@@ -45,8 +55,3 @@
   <button>Click to add your score!</button>
 </a>
 </div>
-{{!-- need to put info for past courses golfed on and display each one--}}
-  
-
-
-<script src="js/coursesAndScore.js"></script>
