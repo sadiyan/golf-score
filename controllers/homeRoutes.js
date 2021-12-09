@@ -71,7 +71,7 @@ router.post('/addreview', async (req, res) => {
          }
       })
 
-      if (checkcourse.length !== 0) {
+      if (checkcourse) {
          var courseData = checkcourse
       } else {
          var courseData = await Course.create({
