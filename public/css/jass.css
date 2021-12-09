@@ -524,14 +524,14 @@ form .form-input.form-input-squared {
 }
 
 .recentNews {
-    background-color: #4f7942;
+    background-image: url("https://media.istockphoto.com/vectors/abstract-white-background-geometric-texture-vector-id954565408?b=1&k=20&m=954565408&s=170667a&w=0&h=6IG6ZuQI7FdXbEFXtEbHhY3BfBSu2_aRYTB_r6Oz-qc=")
 }
 .recentNews .news-title {
     text-align:center;
     padding-top:35px;
-    font-size:55px;
+    font-size:50px;
     font-weight:bold;
-    color: #fff;
+    color: black;
 }
 .recentNews .row {
     display: flex;
@@ -578,7 +578,7 @@ form .form-input.form-input-squared {
 }
 .ct-blog-content .ct-blog-date strong {
     font-size: 25px;
-    color: #4f7942;  
+    color: black;  
 }
 .ct-blog-content .ct-blog-header {
     color: #000;
@@ -589,4 +589,23 @@ form .form-input.form-input-squared {
     line-height: 1.1;
     padding: 0 20px;
     vertical-align: top;
+}
+
+.elevateYourGame .news-title {
+  text-align:center;
+  padding-top:35px;
+  font-size:50px;
+  font-weight:bold;
+  color: black;
+}
+
+.elevateYourGame .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.elevateYourGame .ct-blog {
+  margin-bottom: 30px;
 }

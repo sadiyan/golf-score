@@ -8,14 +8,6 @@ header {
   min-height: 400px;
 }
 
-a {
-  text-decoration: none;
-  color: #076652;
-}
-
-a:hover {
-  color: yellow;
-}
 
 img {
   width: 100%;
@@ -44,3 +36,33 @@ h3 {
   font-size: large;
 }
 
+a {
+  text-decoration: none;
+  color: #076652;
+}
+
+a:hover {
+  color: yellow;
+}
+
+.no-button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: #076652;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.no-button:hover {
+  color: yellow;
+}
+
+.diane {
+  width: auto;
+}
+
+.credentials {
+  font-size: large;
+}
