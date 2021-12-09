@@ -1,34 +1,34 @@
-
 {{#each course as |course|}}
     {{#each course.scores as |score| }}
-    <div class="dataarry">
-      x: {{format_date date}}, y: {{total}}
-    </div>
+    <div class="datearry">'{{format_date date}}', {{total}}</div>
+    
     {{/each}}
 {{/each}} 
- 
-
 
 
     <div id="chart" style="width: 700px; height: 500px"></div>
   
 
-
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
+    
+    const arrdatatable = ["['Date', 'Score']"]
+    const dateObj= document.querySelectorAll('.datearry')
 
-    const arrayObject = document.querySelector('.dataarry')
+    dateObj.forEach(arr=> arrdatatable.push(arr.innerHTML) )
+    console.log(arrdatatable)
+
+
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales'],
+        ['Date', 'Score'],
         ['2004',  1000 ],
         ['2005',  1170 ],
         ['2006',  660 ],
-        ['2007',  1030 ]
+
     ]);
 
     var options = {
