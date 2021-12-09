@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       })
 
       const courses = newCourse.map((course) => course.get({ plain: true }));
-      console.log(courses)
+
       res.render('homepage', { 
          courses,          
          logged_in: true
@@ -65,12 +65,22 @@ router.get('/login', (req, res) => {
 
 router.post('/addreview', async (req, res) => {
    try {
+      var checkcourse = await Course.findOne({
+         where: {
+            name: req.body.coursename
+         }
+      })
 
-     const courseData = await Course.create({
-      name: req.body.coursename,
-      par: req.body.coursepar,
-      userId: req.session.user_id,
-    });
+      if (checkcourse.length !== 0) {
+         var courseData = checkcourse
+      } else {
+         var courseData = await Course.create({
+            name: req.body.coursename,
+            par: req.body.coursepar,
+            userId: req.session.user_id,
+         });
+
+   }
 
     const course = courseData.get({ plain: true })
 
