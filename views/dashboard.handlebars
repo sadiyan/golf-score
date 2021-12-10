@@ -26,7 +26,7 @@
             <p>Score: {{score.total}}</p>
             <div class="col-md-4">
             
-              <button class="btn btn-sm btn-danger" data-id="{{course.id}}" type="submit">DELETE</button>
+              <button class="delete-score-btn btn btn-sm btn-danger" data-id="{{course.id}}" type="submit">DELETE</button>
 
             </div>
           {{/each}} 
@@ -37,6 +37,7 @@
   {{/if}} 
 
 
+  <a href="/dashboard/add"><button class="add-score-btn">Click to add your score!</button></a>
  
 
   {{!-- maybe put a graph --}}
@@ -47,7 +48,6 @@
 
 
   
-  <a href="/dashboard/add"><button>Click to add your score!</button></a>
 </div>
 {{!-- need to put info for past courses golfed on and display each one--}}
   

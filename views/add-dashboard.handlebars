@@ -1,11 +1,5 @@
 {{!-- need score and courses --}}
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{user.name}}!</h2>
-  </div>
-</div>
-
-<div class="row mt-4" style="border: 2px solid #076652; background-image: url('https://media.istockphoto.com/vectors/abstract-white-background-geometric-texture-vector-id954565408?b=1&k=20&m=954565408&s=170667a&w=0&h=6IG6ZuQI7FdXbEFXtEbHhY3BfBSu2_aRYTB_r6Oz-qc=');">
+<div class="row mt-4" style="margin-top: 30px; border: 2px solid #076652; background-image: url('https://media.istockphoto.com/vectors/abstract-white-background-geometric-texture-vector-id954565408?b=1&k=20&m=954565408&s=170667a&w=0&h=6IG6ZuQI7FdXbEFXtEbHhY3BfBSu2_aRYTB_r6Oz-qc=');">
   <div class="col-md-6">
     <h4 style="margin-left: 20px;">Been golfing?</h4>
 
@@ -16,7 +10,7 @@
       </div>
       <div class="form-group">
         <label for="post-title">Par:</label>
-        <input class="form-input" type="number" id="par" name="post-title" />
+        <input class="form-input" type="number" id="par" name="post-title" max="72" />
       </div>
       <div class="form-group">
         <label for="post-title">Score:</label>

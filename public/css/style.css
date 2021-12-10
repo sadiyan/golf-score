@@ -115,3 +115,29 @@ a:hover {
   background-color: #076652;
   color: white;
 }
+
+.create-button {
+
+}
+
+.add-score-btn {
+  margin-top: 20px;
+  color: white;
+  background-color: #076652;
+}
+
+.add-score-btn:hover {
+  color: yellow;
+}
+
+.delete-score-btn {
+  margin-bottom: 10px;
+  background-color: #076652;
+  color: white;
+}
+
+.delete-score-btn:hover {
+  background-color: red;
+  color: white;
+}
+
