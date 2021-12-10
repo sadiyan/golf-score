@@ -27,3 +27,21 @@ const reviewaddHandler = async (event) => {
   document
     .querySelector('.new-post-form')
     .addEventListener('submit', reviewaddHandler);
+
+
+//autocomplete
+
+var availableTags = [];
+
+
+const coursedata = document.querySelectorAll('.allcourse')
+
+coursedata.forEach(course => {
+  availableTags.push(course.innerHTML)
+})
+
+console.log(availableTags)
+
+$( "#post-course" ).autocomplete({
+  source: availableTags
+});
