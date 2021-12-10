@@ -1,4 +1,7 @@
-*,
+* {
+  font-family: 'Radley', serif;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
