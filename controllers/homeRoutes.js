@@ -27,10 +27,16 @@ router.get('/', async (req, res) => {
    }
 });
 
-router.get('/addreview', (req, res) => {
+router.get('/addreview', withAuth, async (req, res) => {
    try {
+      const courseData = await Course.findAll()
+
+      const courses = courseData.map((course) => course.get({ plain: true }));
+
+
       res.render('addcoursereview', {
-         logged_in: true
+         logged_in: true,
+         courses
       })
    }
 

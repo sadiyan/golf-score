@@ -14,7 +14,7 @@ router.get('/', withAuth, async (req, res) => {
 
       const courseData = await Course.findAll({
          where: {
-            user_id: req.session.user_id,
+            userId: req.session.user_id,
          },
          include: [{
             model: Score,
@@ -108,9 +108,15 @@ router.delete('/:id', withAuth, async (req, res) => {
    }
  });
 
-router.get('/add', withAuth, (req, res) => {
+router.get('/add', withAuth, async (req, res) => {
+
+   const courseData = await Course.findAll()
+
+   const courses = courseData.map((course) => course.get({ plain: true }));
+
    res.render('add-dashboard', {
-      logged_in: true
+      logged_in: true,
+      courses
    })
 })
 

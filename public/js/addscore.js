@@ -26,3 +26,19 @@ const scoreAddHandler = async (event) => {
     .querySelector('.new-post-form')
     .addEventListener('submit', scoreAddHandler);
 
+
+//autocomplete
+
+var availableTags = [];
+
+
+const coursedata = document.querySelectorAll('.allcourse')
+
+coursedata.forEach(course => {
+  availableTags.push(course.innerHTML)
+})
+
+
+$( "#course" ).autocomplete({
+  source: availableTags
+});
