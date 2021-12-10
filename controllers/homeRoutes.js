@@ -4,6 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
    try {
+      console.log(req.session)
       const newCourse = await Course.findAll({
          include: [{
             model: Review
@@ -17,8 +18,7 @@ router.get('/', async (req, res) => {
       const courses = newCourse.map((course) => course.get({ plain: true }));
 
       res.render('homepage', { 
-         courses,          
-         logged_in: true
+         courses
       })
    }
 
