@@ -1,4 +1,4 @@
-{{#each courses as |course|}}
+{{!-- {{#each courses as |course|}}
     <div style="border: 2px #076652 solid; background-image: url('https://media.istockphoto.com/vectors/abstract-white-background-geometric-texture-vector-id954565408?b=1&k=20&m=954565408&s=170667a&w=0&h=6IG6ZuQI7FdXbEFXtEbHhY3BfBSu2_aRYTB_r6Oz-qc=');">
         Course: {{name}}
         <br>
@@ -6,7 +6,7 @@
         <br>
     </div>
     {{#each reviews as |review|}}
-        <div style="margin-bottom:25px; border: 2px #076652 solid; background-image: url('https://media.istockphoto.com/vectors/abstract-white-background-geometric-texture-vector-id954565408?b=1&k=20&m=954565408&s=170667a&w=0&h=6IG6ZuQI7FdXbEFXtEbHhY3BfBSu2_aRYTB_r6Oz-qc=');">
+        <div style="border: 2px #076652 solid; background-image: url('https://media.istockphoto.com/vectors/abstract-white-background-geometric-texture-vector-id954565408?b=1&k=20&m=954565408&s=170667a&w=0&h=6IG6ZuQI7FdXbEFXtEbHhY3BfBSu2_aRYTB_r6Oz-qc=');">
             Comment: {{comment}} - {{course.user.username}} 
             <br>
             Date Created: {{format_date createdDate}}
@@ -15,4 +15,22 @@
             <br>
         </div>
     {{/each}}
+{{/each}} --}}
+
+    <div style="border: 2px #076652 solid; background-image: url('https://media.istockphoto.com/vectors/abstract-white-background-geometric-texture-vector-id954565408?b=1&k=20&m=954565408&s=170667a&w=0&h=6IG6ZuQI7FdXbEFXtEbHhY3BfBSu2_aRYTB_r6Oz-qc=');">
+{{#each courses as |course|}}
+        <div style="border-top: 2px #076652 solid;">
+            Course: {{name}}
+            <br>
+            Par: {{par}}
+            <br>
+        </div>    
+            <div style="border-bottom: 2px dotted #076652;">Comments↓</div>
+    {{#each reviews as |review|}}
+            {{comment}} - {{course.user.username}} {{format_date createdDate}}
+            <br>
+            Rating: {{rating}}
+            <br>
+    {{/each}}
 {{/each}}
+    </div>
