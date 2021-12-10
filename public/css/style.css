@@ -27,7 +27,6 @@ div.transbox p {
 }
 
 h4 {
-  margin-left: 20px;
   font-size: large;
 }
 
@@ -83,6 +82,8 @@ a:hover {
 }
 
 .add-review-button-1 {
+  margin-top: 40px;
+  margin-bottom: 25px;
   background-color: white; 
   color: black; 
   border: 2px solid #076652;
@@ -90,6 +91,53 @@ a:hover {
 
 .add-review-button-1:hover {
   background-color: #076652;
+  color: white;
+}
+
+.add-score-button {
+  background-color: #076652;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.add-score-button-1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #076652;
+}
+
+.add-score-button-1:hover {
+  background-color: #076652;
+  color: white;
+}
+
+.create-button {
+
+}
+
+.add-score-btn {
+  margin-top: 20px;
+  color: white;
+  background-color: #076652;
+}
+
+.add-score-btn:hover {
+  color: yellow;
+}
+
+.delete-score-btn {
+  margin-bottom: 10px;
+  background-color: #076652;
+  color: white;
+}
+
+.delete-score-btn:hover {
+  background-color: red;
   color: white;
 }
 

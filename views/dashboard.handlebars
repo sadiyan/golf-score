@@ -1,9 +1,7 @@
 {{!-- need score and courses --}}
 <div class="row">
   <div class="col-auto">
-
     <h2>Welcome, {{username}}!</h2>
-
   </div>
 </div>
 
@@ -15,12 +13,12 @@
 
   {{#if user.courses.length}}
     <div class="col-md-6 project-list">
-    <h3>Past Course's:</h3>
+    <h4 style="border-bottom: 2px #076652 solid;">Past Course's:</h4>
 
     {{#each course as |course|}}
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <h4>Course: {{course.name}}</h4>
+      <div class="row mb-2" style="border: #076652 2px solid;">
+        <div class="col-md-8" style="margin-left: 10px;">
+          <h3>Course: {{course.name}}</h3>
           <p>Par: {{course.par}}</p>
 
           {{#each course.scores as |score| }}
@@ -28,7 +26,7 @@
             <p>Score: {{score.total}}</p>
             <div class="col-md-4">
             
-              <button class="btn btn-sm btn-danger" data-id="{{course.id}}" type="submit">DELETE</button>
+              <button class="delete-score-btn btn btn-sm btn-danger" data-id="{{course.id}}" type="submit">DELETE</button>
 
             </div>
           {{/each}} 
@@ -39,20 +37,17 @@
   {{/if}} 
 
 
+  <a href="/dashboard/add"><button class="add-score-btn">Click to add your score!</button></a>
  
 
   {{!-- maybe put a graph --}}
     <div class="col-md-6">
       {{> linechart}}
-
     </div>
   </div>
 
 
   
-  <a href="/dashboard/add">
-  <button>Click to add your score!</button>
-</a>
 </div>
 {{!-- need to put info for past courses golfed on and display each one--}}
   

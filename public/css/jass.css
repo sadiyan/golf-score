@@ -1,4 +1,7 @@
-*,
+* {
+  font-family: 'Radley', serif;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -8,7 +11,6 @@ body {
   min-height: 100%;
 }
 
-/* Padding - all sides */
 .p-0 {
   padding: 0;
 }
@@ -95,7 +97,6 @@ form .form-input.form-input-squared {
   width: 92%;
 }
 
-/* FLEX CONTENT */
 .flex-row {
   display: flex;
   flex-direction: row;
