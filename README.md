@@ -1,5 +1,6 @@
 # golf-score
 
+## Description 
 
 1. Golf Score is an application built for golf lovers where you can keep scores on your favorite courses, and enjoy the latest news of your favorite sport. You can fully use this site after login.
 
@@ -8,21 +9,22 @@
 3. In the dashboard page, you can manage your score by course and the graph shows how your scores are going to change.
 
 
-4. In the myboard page, 
+4. In the myboard page, you can check latest sport news and golf instructor information.
 
 
-5. 
+5. The score management and review would be based on login information.
+
 
 
 [Link To Deployed Website]()
 
-![Overview](add gif file link)
+![Overview](./public/Golf_Score.gif)
 
 
 
 
 
-# Resources Used:
+## Resources Used:
 
 
 [Sample Code To Use Leaflet ESRI-search](http://esri.github.io/esri-leaflet/examples/geocoding-control.html)
@@ -32,14 +34,21 @@
 
 
 
-# Libararies Used:
+## Libararies Used:
+
+
+bcrypt, 
+connect-session-sequelize, 
+dotenv, 
+express, express-handlebars, express-session, 
+mysql2, sequelize
 
 [Leaflet Library to Show Maps](https://leafletjs.com/)
 
 [ESRI library to Use Search in Leaflet Map](https://developers.arcgis.com/dashboard/)
 
 
-# Presentation Link
+## Presentation Link
 
 https://docs.google.com/presentation/d/1B69HS87Ai7fP-7gt9EmOw76pbEkr1SVIcs5zFRp87hk/edit#slide=id.g29f43f0a72_0_10
 
