@@ -1,57 +1,33 @@
-{{!-- need score and courses --}}
 <div class="row">
   <div class="col-auto">
     <h2>Welcome, {{username}}!</h2>
   </div>
 </div>
 
-<div class="container d-flex">
-  <div class="row mt-12">
+<h4 style="border-bottom: 2px #076652 solid; font-size:x=x-large">Past Course's and Score's:</h4>
 
-
-{{!-- need to put info for past courses golfed on and display each one--}}
-
-  {{#if user.courses.length}}
-    <div class="col-md-6 project-list">
-    <h4 style="border-bottom: 2px #076652 solid;">Past Course's:</h4>
-
-    {{#each course as |course|}}
-      <div class="row mb-2" style="border: #076652 2px solid;">
-        <div class="col-md-8" style="margin-left: 10px;">
-          <h3>Course: {{course.name}}</h3>
-          <p>Par: {{course.par}}</p>
-
-          {{#each course.scores as |score| }}
+<div class="row" style="width: 100%;">
+  <div class="column">
+    <div>{{> linechart}}</div>
+  </div>
+  <div class="column" style="margin-top: 80px;">
+    <a href="/dashboard/add"><button class="add-score-btn">Click to add your score!</button></a>
+      {{#if user.courses.length}}
+        {{#each course as |course|}}
+          <div style="margin-left: 10px; margin-top: 10px; border: 1px #076652 solid">
+            <h4>{{course.name}}</h4>
+            <p>Par: {{course.par}}</p>
+            {{#each course.scores as |score| }}
             <p>Date: {{format_date score.date}}</p>
             <p>Score: {{score.total}}</p>
-            <div class="col-md-4">
-            
-              <button class="delete-score-btn btn btn-sm btn-danger" data-id="{{course.id}}" type="submit">DELETE</button>
+            <button class="delete-score-btn btn btn-sm btn-danger" data-id="{{course.id}}" type="submit">DELETE</button>
+          </div>
+            {{/each}}
+        {{/each}}
+      {{/if}}
+  </div>
+</div>
 
-            </div>
-          {{/each}} 
-
-      </div>
-    {{/each}}
-    </div>
-  {{/if}} 
-
-
-  <a href="/dashboard/add"><button class="add-score-btn">Click to add your score!</button></a>
  
 
-  {{!-- maybe put a graph --}}
-    <div class="col-md-6">
-      {{> linechart}}
-    </div>
-  </div>
-
-
-  
-</div>
-{{!-- need to put info for past courses golfed on and display each one--}}
-  
-
-
 <script src="js/deletescore.js"></script>
-

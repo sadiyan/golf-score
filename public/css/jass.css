@@ -87,7 +87,7 @@ form .form-input.form-input-squared {
 }
 
 .container {
-  width: 85%;
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -171,7 +171,6 @@ form .form-input.form-input-squared {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
 }
 
