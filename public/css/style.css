@@ -116,12 +116,9 @@ a:hover {
   color: white;
 }
 
-.create-button {
-
-}
-
 .add-score-btn {
   margin-top: 20px;
+  margin-left: 10px;
   color: white;
   background-color: #076652;
 }
